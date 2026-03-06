@@ -55,3 +55,28 @@ To get the final answer, compute: atMost(goal) - atMost(goal - 1)
 
 
 '''
+
+
+#similar problem
+
+class Solution:
+    def subarraysWithKDistinct(self, nums: List[int], k: int) -> int:
+        return self.sub(nums,k)-self.sub(nums,k-1)
+
+
+    def sub(self,s,tar):
+        left=0
+        hash_map = {}
+        count=0
+        for right in range(len(s)):
+            hash_map[s[right]]= hash_map.get(s[right],0)+1
+            while len(hash_map)>tar:
+                hash_map[s[left]]-=1
+                if hash_map[s[left]]==0:
+                    del hash_map[s[left]]
+                left+=1
+            count+=(right-left+1)
+        return count
+
+
+        
