@@ -1,3 +1,4 @@
+#r-1
 #Dutch National Flag Algorithm
 
 nums = [1,2,0,2,1,0,2,1]

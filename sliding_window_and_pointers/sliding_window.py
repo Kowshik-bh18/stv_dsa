@@ -1,3 +1,4 @@
+#r-1
 # always remember left window pointer will always less than right window
 
 
