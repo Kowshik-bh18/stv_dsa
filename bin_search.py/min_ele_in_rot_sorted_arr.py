@@ -2,7 +2,7 @@ from typing import List
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         left=0
-        right=len(nums)-1
+        right=len(nums)-1 
         ans = float('inf')
         while(left<=right):
             mid = (left+right)//2
