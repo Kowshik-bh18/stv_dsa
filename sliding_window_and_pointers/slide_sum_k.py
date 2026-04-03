@@ -80,8 +80,6 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 
 Optimal for positive numbers
-
-If you want, I can also visually show how i and j move step-by-step so this becomes 100% clear in your mind.
 '''
 
 
