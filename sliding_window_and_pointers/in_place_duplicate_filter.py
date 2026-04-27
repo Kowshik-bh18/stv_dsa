@@ -39,17 +39,21 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 #solution
 
+from typing import List
+
 class Solution:
-    def check(self, nums: List[int]) -> bool:
-        is_s = 0
-        for i in range(len(nums)-1):
-            if(nums[i+1]<nums[i]):
-                is_s+=1
-        if(nums[0]<nums[-1]):
-            is_s+=1
-        if is_s<=1:
-            return True
-        return False
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        
+        j = 1  # position for next unique
+        
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i - 1]:
+                nums[j] = nums[i]
+                j += 1
+        
+        return j
 
 
 #logical intuition
