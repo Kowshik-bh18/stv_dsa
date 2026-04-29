@@ -35,3 +35,27 @@ Time Complexity: O(n), where n is the length of the string,each character is pro
 Space Complexity: O(1), constant space .Only a fixed-size frequency array (26 letters) is used, regardless of input size.
 '''
         
+
+#revision solution
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        hash_map = {}
+        max_freq=max_len=left=0
+        for right in range(len(s)):
+            hash_map[s[right]]=hash_map.get(s[right],0)+1
+            max_freq = max(max_freq,hash_map[s[right]])
+            if ((right-left)+1)-max_freq>k:
+                hash_map[s[left]]-=1
+                left+=1
+            max_len = max(max_len,right-left+1)
+        return max_len
+
+'''
+here we are making sure window should ensure proper length so we acn achieve above optimization
+
+The main idea in eliminating recalculating max_frqency and updating after decrsing freqency is
+
+since in order to achive hiher length we need charter with more freauency if we update max_frew with low it does make any sense
+'''
+        
