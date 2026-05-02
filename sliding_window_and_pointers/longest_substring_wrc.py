@@ -67,5 +67,27 @@ m = number of unique characters (at most 128 for ASCII)
 
 Worst case:
 If all characters are unique → hashmap stores all characters → O(n).
-
 '''
+
+#we can also solve this problem just by using set
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        left = 0
+        max_length = 0
+        count = set()
+
+        for right in range(len(s)):
+            while s[right] in count:
+                count.remove(s[left])
+                left+=1
+
+            count.add(s[right])
+
+            max_length = max(len(count),max_length)
+
+        return max_length
+            
+
+
+        

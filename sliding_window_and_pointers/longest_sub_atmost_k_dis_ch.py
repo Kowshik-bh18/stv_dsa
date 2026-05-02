@@ -31,3 +31,21 @@ Time Complexity:O(n) ,We iterate through the string once, and each character is 
 
 Space Complexity: O(k) ,We store at most k characters in the frequency map at any given time, so space used is proportional to k.
 '''
+
+'''
+optimized version by using lazy evaluation method
+'''
+class Solution:
+    def kDistinctChar(self, s, k):
+        hash_map = {}
+        left=max_len=0
+        for right in range(len(s)):
+            hash_map[s[right]] = hash_map.get(s[right],0)+1
+            if len(hash_map)>k:
+                hash_map[s[left]]-=1
+                if hash_map[s[left]]<=0:
+                    del hash_map[s[left]]
+                left+=1
+            max_len = max(max_len,right-left+1)
+        return max_len
+        
